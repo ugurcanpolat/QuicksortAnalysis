@@ -1,0 +1,9 @@
+\.DS_Store
+*.txt
+*.csv
+*.xcodeproj/
+*.xcodeproj/*
+*.pbxproj
+*.out
+*.o
+project2
