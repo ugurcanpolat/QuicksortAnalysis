@@ -147,8 +147,17 @@ void SegmentManager::writeOutputFile(const string file_name) const {
     // Write the sorted segment values
     for (int counter = 0; counter < size; counter++) {
         output << (segments[counter]).getPopulation() << ',';
-        output << (segments[counter]).getMinAge() << ',';
-        output << (segments[counter]).getMaxAge() << ',';
+        
+        if ((segments[counter]).getMinAge() != -1)
+            output << (segments[counter]).getMinAge() << ',';
+        else
+            output << ',';
+        
+        if ((segments[counter]).getMaxAge() != -1)
+            output << (segments[counter]).getMaxAge() << ',';
+        else
+            output << ',';
+        
         output << (segments[counter]).getGender() << ',';
         output << (segments[counter]).getZipCode() << ',';
         output << (segments[counter]).getGeoId() << endl;
