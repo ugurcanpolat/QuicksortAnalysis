@@ -16,9 +16,6 @@ class SegmentManager {
   private:
     vector<Segment> segments;
     int size;
-    void insertionSort(COMPARETYPE compareBy);
-    void mergeSort(int p, int r, COMPARETYPE compareBy);
-    void merge(int p, int q, int r, COMPARETYPE compareBy);
     int partition(int p, int r);
     void quickSort(int p, int r);
   public:
