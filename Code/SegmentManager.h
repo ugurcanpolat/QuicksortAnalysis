@@ -2,7 +2,11 @@
  * Student Name: Ugurcan Polat
  * Student ID : 150140117
  * Date: 09.11.2017
- */
+ * * * * * * * * * * * * * * * * * *
+ 
+ Compile command: g++ -std=c++11 150140117.cpp -o project2
+ 
+ * * * * * * * * * * * * * * * * * */
 
 #ifndef SegmentManager_h
 #define SegmentManager_h

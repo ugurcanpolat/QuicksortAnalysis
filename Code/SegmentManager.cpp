@@ -2,7 +2,11 @@
  * Student Name: Ugurcan Polat
  * Student ID : 150140117
  * Date: 09.11.2017
- */
+ * * * * * * * * * * * * * * * * * *
+ 
+ Compile command: g++ -std=c++11 150140117.cpp -o project2
+ 
+ * * * * * * * * * * * * * * * * * */
 
 #include "SegmentManager.h"
 
@@ -16,7 +20,24 @@ SegmentManager::SegmentManager() {
 int SegmentManager::partition(int p, int r) {
     /* This function is written according to the pseudocode in
      the lecture slides. */
-    return 0;
+    
+    Segment x = segments[r];
+    int i = p - 1;
+    
+    for(int j = p; j < r; j++) {
+        if (segments[j].compare(x, SORT) <= 0) {
+            i++;
+            Segment temp = segments[j];
+            segments[j] = segments[i];
+            segments[i] = temp;
+        }
+    }
+    
+    Segment temp = segments[r];
+    segments[r] = segments[i+1];
+    segments[i+1] = temp;
+    
+    return i+1;
 }
 
 void SegmentManager::quickSort(int p, int r) {
@@ -26,7 +47,7 @@ void SegmentManager::quickSort(int p, int r) {
     if (p < r) {
         int q = partition(p, r);
         quickSort(p, q-1);
-        quickSort(p, q+1);
+        quickSort(q+1, r);
     }
 }
 
@@ -34,7 +55,7 @@ float SegmentManager::sortSegments() {
     using namespace chrono;
     
     auto sortingStart = high_resolution_clock::now(); // Begin time stamp
-    quickSort(0, size-1);
+    quickSort(0, size-1); // Sort
     auto sortingEnd = high_resolution_clock::now(); // End time stamp
     
     // Get the elapsed time in unit microseconds

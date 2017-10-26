@@ -2,19 +2,23 @@
  * Student Name: Ugurcan Polat
  * Student ID : 150140117
  * Date: 09.11.2017
- */
+ * * * * * * * * * * * * * * * * * *
+ 
+ Compile command: g++ -std=c++11 150140117.cpp -o project2
+ 
+ * * * * * * * * * * * * * * * * * */
 
 #include "Segment.h"
 
 Segment::Segment(const string input[]) {
     population = stoi(input[0]);
     
-    if(input[1].empty())
+    if(input[1].empty()) // If minimum_age is null
         minAge = -1;
     else
         minAge = stoi(input[1]);
     
-    if(input[2].empty())
+    if(input[2].empty()) // If maximum_age is null
         maxAge = -1;
     else
         maxAge = stoi(input[2]);
@@ -79,10 +83,9 @@ int Segment::compare(const Segment& cmp, COMPARETYPE compareBy) const {
 }
 
 int Segment::sortCompare(const Segment& self, const Segment& cmp) const {
-    /* This function compares |this| segment with the |cmp| by
-     full sort procedure */
+    /* This function compares |this| segment with the |cmp| */
     
-    // Get the comparison results for Population and Geo_Id
+    // Get the comparison results for population and geo_id
     int populationCompare = self.compare(cmp, POPULATION);
     int geoIdCompare = self.compare(cmp, GEO_ID);
     

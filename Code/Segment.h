@@ -2,7 +2,11 @@
  * Student Name: Ugurcan Polat
  * Student ID : 150140117
  * Date: 09.11.2017
- */
+ * * * * * * * * * * * * * * * * * *
+ 
+ Compile command: g++ -std=c++11 150140117.cpp -o project2
+ 
+ * * * * * * * * * * * * * * * * * */
 
 #ifndef Segment_h
 #define Segment_h
@@ -26,16 +30,7 @@ class Segment {
     string gender;
     int zipCode;
     string geoId;
-    
-    bool minNull;
-    bool maxNull;
-    
-    string name;
-    string cardClass;
-    string rarity;
-    string set;
-    string type;
-    int cost;
+    int sortCompare(const Segment& cmp1, const Segment& cmp2) const;
   public:
     Segment() {}; // Necessary for 'new []' allocations
     Segment(const string input[]);
@@ -46,7 +41,6 @@ class Segment {
     int getZipCode() const;
     string getGeoId() const;
     int compare(const Segment& cmp, COMPARETYPE compareBy) const;
-    int sortCompare(const Segment& cmp1, const Segment& cmp2) const;
 };
 
 #endif /* Segment_h */
